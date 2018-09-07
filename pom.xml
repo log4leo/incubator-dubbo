@@ -26,7 +26,7 @@
 
     <groupId>org.apache.dubbo</groupId>
     <artifactId>dubbo-parent</artifactId>
-    <version>2.7.0-SNAPSHOT</version>
+    <version>2.7.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -152,10 +152,11 @@
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-dependencies-bom</artifactId>
-                <version>2.7.0-SNAPSHOT</version>
+                <version>2.7.1-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -184,6 +185,9 @@
             <version>${cglib_version}</version>
             <scope>test</scope>
         </dependency>
+
+
+
     </dependencies>
 
     <profiles>
@@ -319,6 +323,23 @@
             </build>
         </profile>
     </profiles>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <url>
+                http://nexus.elephtribe.net/nexus/content/repositories/releases/
+            </url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>
+                http://nexus.elephtribe.net/nexus/content/repositories/snapshots/
+            </url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
 
     <build>
         <!-- Used for packaging NOTICE & LICENSE to each sub-module jar-->
@@ -605,6 +626,20 @@
                     <artifactId>jetty-maven-plugin</artifactId>
                     <version>${maven_jetty_version}</version>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-remote-resources-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>none</phase>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>
