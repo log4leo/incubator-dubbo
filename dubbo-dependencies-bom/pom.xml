@@ -10,7 +10,7 @@
 
     <groupId>org.apache.dubbo</groupId>
     <artifactId>dubbo-dependencies-bom</artifactId>
-    <version>2.7.1-SNAPSHOT</version>
+    <version>2.7.2-JINGLING</version>
     <packaging>pom</packaging>
 
     <name>dubbo-dependencies-bom</name>
